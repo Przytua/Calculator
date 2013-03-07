@@ -6,12 +6,22 @@
 //  Copyright (c) 2013 Mildware. All rights reserved.
 //
 
+#define ZERO_IF_NIL(A)	({ __typeof__(A) __a = (A); __a == nil ? [NSNumber numberWithDouble:0.0] : __a; })
+
 #import <Foundation/Foundation.h>
 
 @interface CalculatorBrain : NSObject
 
-- (void)pushOperand:(double)operand;
+- (void)pushOperand:(id)operand;
+- (void)popOperand;
 - (double)performOperation:(NSString *)operation;
 - (void)clear;
+
+@property (nonatomic, readonly) id program;
+
++ (NSString *)descriptionOfProgram:(id)program;
++ (double)runProgram:(id)program;
++ (double)runProgram:(id)program usingVariableValues:(NSDictionary *)variableValues;
++ (NSSet *)variablesUsedInProgram:(id)program;
 
 @end

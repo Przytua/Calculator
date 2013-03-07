@@ -19,6 +19,7 @@
 		5C70B3EC16E7D663007FFD4C /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C70B3EA16E7D663007FFD4C /* MainStoryboard.storyboard */; };
 		5C70B3EF16E7D663007FFD4C /* CalculatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C70B3EE16E7D663007FFD4C /* CalculatorViewController.m */; };
 		5C70B3F716E7DF05007FFD4C /* CalculatorBrain.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C70B3F616E7DF05007FFD4C /* CalculatorBrain.m */; };
+		5C73BCF316E8B28E005B4DCA /* ProgramOperand.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C73BCF216E8B28E005B4DCA /* ProgramOperand.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,8 @@
 		5C70B3EE16E7D663007FFD4C /* CalculatorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalculatorViewController.m; sourceTree = "<group>"; };
 		5C70B3F516E7DF05007FFD4C /* CalculatorBrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorBrain.h; sourceTree = "<group>"; };
 		5C70B3F616E7DF05007FFD4C /* CalculatorBrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorBrain.m; sourceTree = "<group>"; };
+		5C73BCF116E8B28E005B4DCA /* ProgramOperand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramOperand.h; sourceTree = "<group>"; };
+		5C73BCF216E8B28E005B4DCA /* ProgramOperand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramOperand.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +97,8 @@
 				5C70B3ED16E7D663007FFD4C /* CalculatorViewController.h */,
 				5C70B3EE16E7D663007FFD4C /* CalculatorViewController.m */,
 				5C70B3D916E7D663007FFD4C /* Supporting Files */,
+				5C73BCF116E8B28E005B4DCA /* ProgramOperand.h */,
+				5C73BCF216E8B28E005B4DCA /* ProgramOperand.m */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -183,6 +188,7 @@
 				5C70B3E316E7D663007FFD4C /* CalculatorAppDelegate.m in Sources */,
 				5C70B3EF16E7D663007FFD4C /* CalculatorViewController.m in Sources */,
 				5C70B3F716E7DF05007FFD4C /* CalculatorBrain.m in Sources */,
+				5C73BCF316E8B28E005B4DCA /* ProgramOperand.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +311,7 @@
 				5C70B3F416E7D663007FFD4C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

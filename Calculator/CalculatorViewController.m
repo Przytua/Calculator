@@ -9,14 +9,16 @@
 #import "CalculatorViewController.h"
 #import "CalculatorBrain.h"
 
-static const NSString *space = @"  ";
-
 @interface CalculatorViewController ()
+
+@property (weak, nonatomic) IBOutlet UILabel *display;
+@property (weak, nonatomic) IBOutlet UILabel *description;
+@property (weak, nonatomic) IBOutlet UILabel *variableValues;
 
 @property (nonatomic) BOOL userIsInTheMiddleOfEnteringANumber;
 @property (nonatomic) BOOL numberIsFloatingPoint;
 @property (nonatomic, strong) CalculatorBrain *brain;
-@property (strong, nonatomic) IBOutlet UILabel *history;
+@property (nonatomic, strong) NSDictionary *testVariableValues;
 
 @end
 
@@ -28,6 +30,11 @@ static const NSString *space = @"  ";
     _brain = [[CalculatorBrain alloc] init];
   }
   return _brain;
+}
+
+- (NSDictionary *)testVariableValues
+{
+  return _testVariableValues;
 }
 
 - (IBAction)digitPressed:(UIButton *)sender
@@ -45,27 +52,29 @@ static const NSString *space = @"  ";
       self.display.text = [self.display.text stringByAppendingString:digit];
     }
   } else {
-    [self removeEqualSignFromHistory];
     self.display.text = digit;
     self.userIsInTheMiddleOfEnteringANumber = YES;
   }
 }
 
-- (IBAction)enterPressed {
-  [self.brain pushOperand:[self.display.text doubleValue]];
-  [self removeEqualSignFromHistory];
-  self.history.text = [self.history.text stringByAppendingFormat:@"%g%@", [self.display.text doubleValue], space];
+- (IBAction)enterPressed
+{
+  [self.brain pushOperand:[NSNumber numberWithDouble:[self.display.text doubleValue]]];
+  self.description.text = [CalculatorBrain descriptionOfProgram:self.brain.program];
   self.userIsInTheMiddleOfEnteringANumber = NO;
 }
 
-- (IBAction)clearPressed {
-  self.history.text = @"";
+- (IBAction)clearPressed
+{
+  [self.brain clear];
   self.display.text = @"0";
+  self.description.text = @"";
   self.userIsInTheMiddleOfEnteringANumber = NO;
   self.numberIsFloatingPoint = NO;
 }
 
-- (IBAction)backspacePressed {
+- (IBAction)backspacePressed
+{
   if (self.userIsInTheMiddleOfEnteringANumber) {
     self.display.text = [self.display.text substringToIndex:self.display.text.length - 1];
     if ([self.display.text rangeOfString:@"."].location == NSNotFound) {
@@ -75,6 +84,9 @@ static const NSString *space = @"  ";
       self.userIsInTheMiddleOfEnteringANumber = NO;
       self.display.text = @"0";
     }
+  } else {
+    [self.brain popOperand];
+    [self updateDisplay];
   }
 }
 
@@ -92,18 +104,52 @@ static const NSString *space = @"  ";
     }
     [self enterPressed];
   }
-  double result = [self.brain performOperation:operation];
-  if (!isnan(result)) {
-    [self removeEqualSignFromHistory];
-    self.history.text = [self.history.text stringByAppendingFormat:@"%@%@=%@", operation, space, space];
-    self.display.text = [NSString stringWithFormat:@"%g", result];
+  [self.brain pushOperand:operation];
+  [self updateDisplay];
+}
+
+- (IBAction)variablePressed:(UIButton *)sender
+{
+  NSString *variable = [sender currentTitle];
+  if (self.userIsInTheMiddleOfEnteringANumber) {
+    [self enterPressed];
+  }
+  [self.brain pushOperand:variable];
+  [self updateDisplay];
+}
+
+- (IBAction)testPressed:(UIButton *)sender
+{
+  switch (sender.tag) {
+    case 0:
+      _testVariableValues = [NSDictionary dictionaryWithObjectsAndKeys:@215, @"x", @742, @"a", @584.9, @"b", nil];
+      break;
+    case 1:
+      _testVariableValues = [NSDictionary dictionaryWithObjectsAndKeys:@15.84, @"x", @2, @"a", @-582.9, @"b", nil];
+      break;
+    case 2:
+      _testVariableValues = nil;
+      break;
+      
+    default:
+      break;
+  }
+  [self updateDisplay];
+}
+
+- (void)updateVariablesValuesLabel
+{
+  self.variableValues.text = @"";
+  for (NSString *variable in [CalculatorBrain variablesUsedInProgram:self.brain.program]) {
+    self.variableValues.text = [self.variableValues.text stringByAppendingString:[NSString stringWithFormat:@"%@ = %@   ", variable, ZERO_IF_NIL([self.testVariableValues objectForKey:variable])]];
   }
 }
 
-- (void)removeEqualSignFromHistory {
-  if ([self.history.text rangeOfString:@"="].location != NSNotFound) {
-    self.history.text = [self.history.text substringToIndex:self.history.text.length - (1 + space.length)];
-  }
+- (void)updateDisplay
+{
+  self.display.text = [NSString stringWithFormat:@"%g", [CalculatorBrain runProgram:self.brain.program usingVariableValues:self.testVariableValues]];
+  self.description.text = [CalculatorBrain descriptionOfProgram:self.brain.program];
+  [self updateVariablesValuesLabel];
 }
 
 @end

@@ -66,19 +66,22 @@
   }
 }
 
-- (double)performOperation:(NSString *)operation
+- (id)performOperation:(NSString *)operation
 {
   [self.programStack addObject:operation];
   return [[self class] runProgram:self.program];
 }
 
-+ (double)popAndComputeOperandOffProgramStack:(NSMutableArray *)stack
++ (id)popAndComputeOperandOffProgramStack:(NSMutableArray *)stack
 {
   double result = 0;
   
-  
   id topOfStack = [stack lastObject];
-  if (topOfStack) [stack removeLastObject];
+  if (topOfStack) {
+    [stack removeLastObject];
+  } else {
+    return [NSDecimalNumber notANumber];
+  }
   
   if ([topOfStack isKindOfClass:[NSNumber class]])
   {
@@ -88,45 +91,50 @@
   {
     NSString *operation = topOfStack;
     if ([operation isEqualToString:@"+"]) {
-      result = [self popAndComputeOperandOffProgramStack:stack] + [self popAndComputeOperandOffProgramStack:stack];
+      result = [[self popAndComputeOperandOffProgramStack:stack] doubleValue] + [[self popAndComputeOperandOffProgramStack:stack] doubleValue];
     } else if ([operation isEqualToString:@"*"]) {
-      result = [self popAndComputeOperandOffProgramStack:stack] * [self popAndComputeOperandOffProgramStack:stack];
+      result = [[self popAndComputeOperandOffProgramStack:stack] doubleValue] * [[self popAndComputeOperandOffProgramStack:stack] doubleValue];
     } else if ([operation isEqualToString:@"-"]) {
-      double subtrahend = [self popAndComputeOperandOffProgramStack:stack];
-      result = [self popAndComputeOperandOffProgramStack:stack] - subtrahend;
+      double subtrahend = [[self popAndComputeOperandOffProgramStack:stack] doubleValue];
+      result = [[self popAndComputeOperandOffProgramStack:stack] doubleValue] - subtrahend;
     } else if ([operation isEqualToString:@"/"]) {
-      double divisor = [self popAndComputeOperandOffProgramStack:stack];
+      double divisor = [[self popAndComputeOperandOffProgramStack:stack] doubleValue];
       if (divisor == 0) {
-        [stack addObject:[NSNumber numberWithDouble:divisor]];
-        return NAN;
+        return @"Division by zero";
       }
-      result = [self popAndComputeOperandOffProgramStack:stack] / divisor;
+      result = [[self popAndComputeOperandOffProgramStack:stack] doubleValue] / divisor;
     } else if ([operation isEqualToString:@"π"]) {
       result = M_PI;
     } else if ([operation isEqualToString:@"sin"]) {
-      result = sin([self popAndComputeOperandOffProgramStack:stack]);
+      result = sin([[self popAndComputeOperandOffProgramStack:stack] doubleValue]);
     } else if ([operation isEqualToString:@"cos"]) {
-      result = cos([self popAndComputeOperandOffProgramStack:stack]);
+      result = cos([[self popAndComputeOperandOffProgramStack:stack] doubleValue]);
     } else if ([operation isEqualToString:@"sqrt"]) {
-      result = sqrt([self popAndComputeOperandOffProgramStack:stack]);
+      double operand = [[self popAndComputeOperandOffProgramStack:stack] doubleValue];
+      if (operand < 0) return @"Sqrt of negative";
+      result = sqrt(operand);
     } else if ([operation isEqualToString:@"+/-"]) {
-      result = -[self popAndComputeOperandOffProgramStack:stack];
+      result = -[[self popAndComputeOperandOffProgramStack:stack] doubleValue];
     } else if ([operation isEqualToString:@"e"]) {
       result = M_E;
     } else if ([operation isEqualToString:@"log"]) {
-      result = log([self popAndComputeOperandOffProgramStack:stack]);
+      result = log([[self popAndComputeOperandOffProgramStack:stack] doubleValue]);
     }
   }
   
-  return result;
+  if (isnan(result)) {
+    return @"Insuff. operands";
+  }
+  
+  return [NSNumber numberWithDouble:result];
 }
 
-+ (double)runProgram:(id)program
++ (id)runProgram:(id)program
 {
   return [self runProgram:program usingVariableValues:nil];
 }
 
-+ (double)runProgram:(id)program usingVariableValues:(NSDictionary *)variableValues
++ (id)runProgram:(id)program usingVariableValues:(NSDictionary *)variableValues
 {
   if (variableValues == nil) variableValues = [NSDictionary dictionary];
   NSMutableArray *stack;

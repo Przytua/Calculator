@@ -147,7 +147,7 @@
 
 - (void)updateDisplay
 {
-  self.display.text = [NSString stringWithFormat:@"%g", [CalculatorBrain runProgram:self.brain.program usingVariableValues:self.testVariableValues]];
+  self.display.text = [NSString stringWithFormat:@"%@", [CalculatorBrain runProgram:self.brain.program usingVariableValues:self.testVariableValues]];
   self.description.text = [CalculatorBrain descriptionOfProgram:self.brain.program];
   [self updateVariablesValuesLabel];
 }

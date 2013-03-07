@@ -19,9 +19,9 @@ static NSString * const kNotAnOperation = @"NAO";
     id item = [stack lastObject];
     if (item) {
       [stack removeLastObject];
-    } else { // stack was empty, setting 0 as a value
+    } else { // insufficient operands
       self.operation = kNotAnOperation;
-      self.operands = [NSArray arrayWithObject:@"0"];
+      self.operands = [NSArray arrayWithObject:@"?"];
       return self;
     }
     if ([self item:item isAnOperation:operations]) { //item is an operation

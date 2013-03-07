@@ -14,14 +14,14 @@
 
 - (void)pushOperand:(id)operand;
 - (void)popOperand;
-- (double)performOperation:(NSString *)operation;
+- (id)performOperation:(NSString *)operation;
 - (void)clear;
 
 @property (nonatomic, readonly) id program;
 
 + (NSString *)descriptionOfProgram:(id)program;
-+ (double)runProgram:(id)program;
-+ (double)runProgram:(id)program usingVariableValues:(NSDictionary *)variableValues;
++ (id)runProgram:(id)program;
++ (id)runProgram:(id)program usingVariableValues:(NSDictionary *)variableValues;
 + (NSSet *)variablesUsedInProgram:(id)program;
 
 @end

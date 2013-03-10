@@ -29,6 +29,7 @@ typedef enum {
 @property (nonatomic) CGFloat scale;
 @property (nonatomic) CalculatorGraphDrawingType drawingType;
 
+- (void)loadProperties;
 - (void)saveProperties;
 
 @end

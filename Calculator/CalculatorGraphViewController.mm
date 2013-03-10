@@ -127,6 +127,7 @@ using namespace std;
 #pragma mark - graph adaptation to rotated frame
 
 - (void)deviceOrientationDidChange:(NSNotification *)notification {
+  [self.graph loadProperties];
   [self.graph setNeedsDisplay];
 }
 

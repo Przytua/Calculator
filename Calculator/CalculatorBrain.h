@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Mildware. All rights reserved.
 //
 
-#define ZERO_IF_NIL(A)	({ __typeof__(A) __a = (A); __a == nil ? [NSNumber numberWithDouble:0.0] : __a; })
+#define B_IF_A_NIL(A,B)	({ __typeof__(A) __a = (A); __typeof__(B) __b = (B); __a == nil ? __b : __a; })
 
 #import <Foundation/Foundation.h>
 

@@ -9,6 +9,7 @@
 static NSString * const kNotAnOperation = @"NAO";
 
 #import "ProgramOperand.h"
+#import "CalculatorVariable.h"
 
 @implementation ProgramOperand
 
@@ -40,8 +41,8 @@ static NSString * const kNotAnOperation = @"NAO";
       }
     } else { // item is a number
       self.operation = kNotAnOperation;
-      if ([item isKindOfClass:[NSString class]]) {
-        self.operands = [NSArray arrayWithObject:item];
+      if ([item isKindOfClass:[CalculatorVariable class]]) {
+        self.operands = [NSArray arrayWithObject:((CalculatorVariable *)item).variableName];
       } else {
         self.operands = [NSArray arrayWithObject:[NSString stringWithFormat:@"%g", [item doubleValue]]];
       }
@@ -92,9 +93,14 @@ static NSString * const kNotAnOperation = @"NAO";
   if ([self.operation isEqualToString:@"+/-"]) {
     return [((ProgramOperand *)operand) description];
   } else {
-    NSSet *similarOperations = [NSSet setWithObjects:@"*", @"/", nil];
-    if (![similarOperations containsObject:self.operation]) {
-      similarOperations = [NSSet setWithObjects:@"*", @"/", @"+", @"-", nil];
+    NSSet *similarOperations;
+    if ([self.operation isEqualToString:@"/"] && operandIndex == 1) {
+      similarOperations = [NSSet set];
+    } else {
+      similarOperations = [NSSet setWithObjects:@"*", @"/", nil];
+      if (![similarOperations containsObject:self.operation]) {
+        similarOperations = [NSSet setWithObjects:@"*", @"/", @"+", @"-", nil];
+      }
     }
     NSString *description = [((ProgramOperand *)operand) description];
     if ([similarOperations containsObject:((ProgramOperand *)operand).operation]) {

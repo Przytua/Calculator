@@ -16,10 +16,18 @@
 		5C70B3E516E7D663007FFD4C /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C70B3E416E7D663007FFD4C /* Default.png */; };
 		5C70B3E716E7D663007FFD4C /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C70B3E616E7D663007FFD4C /* Default@2x.png */; };
 		5C70B3E916E7D663007FFD4C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C70B3E816E7D663007FFD4C /* Default-568h@2x.png */; };
-		5C70B3EC16E7D663007FFD4C /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C70B3EA16E7D663007FFD4C /* MainStoryboard.storyboard */; };
+		5C70B3EC16E7D663007FFD4C /* MainStoryboard~iphone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C70B3EA16E7D663007FFD4C /* MainStoryboard~iphone.storyboard */; };
 		5C70B3EF16E7D663007FFD4C /* CalculatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C70B3EE16E7D663007FFD4C /* CalculatorViewController.m */; };
 		5C70B3F716E7DF05007FFD4C /* CalculatorBrain.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C70B3F616E7DF05007FFD4C /* CalculatorBrain.m */; };
 		5C73BCF316E8B28E005B4DCA /* ProgramOperand.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C73BCF216E8B28E005B4DCA /* ProgramOperand.m */; };
+		5C73BCF616E9E595005B4DCA /* AxesDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C73BCF516E9E595005B4DCA /* AxesDrawer.m */; };
+		5C73BCFB16E9E9F7005B4DCA /* CalculatorGraphViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5C73BCFA16E9E9F7005B4DCA /* CalculatorGraphViewController.mm */; };
+		5C73BCFF16E9F3BC005B4DCA /* CalculatorGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C73BCFE16E9F3BC005B4DCA /* CalculatorGraphView.m */; };
+		5C73BD0216E9F4AD005B4DCA /* CalculatorSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C73BD0116E9F4AD005B4DCA /* CalculatorSplitViewController.m */; };
+		5C73BD0516E9F4CD005B4DCA /* CalculatorNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C73BD0416E9F4CD005B4DCA /* CalculatorNavigationController.m */; };
+		5C73BD0716E9F8A9005B4DCA /* MainStoryboard~ipad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C73BD0616E9F8A9005B4DCA /* MainStoryboard~ipad.storyboard */; };
+		5C81FD8D16ECDA7300A514FB /* CalculatorVariable.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C81FD8C16ECDA7300A514FB /* CalculatorVariable.m */; };
+		5C81FD9016ECF15000A514FB /* CalculatorNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C81FD8F16ECF15000A514FB /* CalculatorNumber.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,13 +44,28 @@
 		5C70B3E416E7D663007FFD4C /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		5C70B3E616E7D663007FFD4C /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		5C70B3E816E7D663007FFD4C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		5C70B3EB16E7D663007FFD4C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		5C70B3EB16E7D663007FFD4C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = "en.lproj/MainStoryboard~iphone.storyboard"; sourceTree = "<group>"; };
 		5C70B3ED16E7D663007FFD4C /* CalculatorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalculatorViewController.h; sourceTree = "<group>"; };
 		5C70B3EE16E7D663007FFD4C /* CalculatorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalculatorViewController.m; sourceTree = "<group>"; };
 		5C70B3F516E7DF05007FFD4C /* CalculatorBrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorBrain.h; sourceTree = "<group>"; };
 		5C70B3F616E7DF05007FFD4C /* CalculatorBrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorBrain.m; sourceTree = "<group>"; };
 		5C73BCF116E8B28E005B4DCA /* ProgramOperand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramOperand.h; sourceTree = "<group>"; };
 		5C73BCF216E8B28E005B4DCA /* ProgramOperand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramOperand.m; sourceTree = "<group>"; };
+		5C73BCF416E9E595005B4DCA /* AxesDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AxesDrawer.h; sourceTree = "<group>"; };
+		5C73BCF516E9E595005B4DCA /* AxesDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AxesDrawer.m; sourceTree = "<group>"; };
+		5C73BCF916E9E9F7005B4DCA /* CalculatorGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorGraphViewController.h; sourceTree = "<group>"; };
+		5C73BCFA16E9E9F7005B4DCA /* CalculatorGraphViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CalculatorGraphViewController.mm; sourceTree = "<group>"; };
+		5C73BCFD16E9F3BC005B4DCA /* CalculatorGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorGraphView.h; sourceTree = "<group>"; };
+		5C73BCFE16E9F3BC005B4DCA /* CalculatorGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorGraphView.m; sourceTree = "<group>"; };
+		5C73BD0016E9F4AD005B4DCA /* CalculatorSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorSplitViewController.h; sourceTree = "<group>"; };
+		5C73BD0116E9F4AD005B4DCA /* CalculatorSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorSplitViewController.m; sourceTree = "<group>"; };
+		5C73BD0316E9F4CD005B4DCA /* CalculatorNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorNavigationController.h; sourceTree = "<group>"; };
+		5C73BD0416E9F4CD005B4DCA /* CalculatorNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorNavigationController.m; sourceTree = "<group>"; };
+		5C73BD0616E9F8A9005B4DCA /* MainStoryboard~ipad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "MainStoryboard~ipad.storyboard"; sourceTree = "<group>"; };
+		5C81FD8B16ECDA7300A514FB /* CalculatorVariable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorVariable.h; sourceTree = "<group>"; };
+		5C81FD8C16ECDA7300A514FB /* CalculatorVariable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorVariable.m; sourceTree = "<group>"; };
+		5C81FD8E16ECF15000A514FB /* CalculatorNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorNumber.h; sourceTree = "<group>"; };
+		5C81FD8F16ECF15000A514FB /* CalculatorNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorNumber.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,16 +112,14 @@
 		5C70B3D816E7D663007FFD4C /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				5C73BCF816E9E5B8005B4DCA /* Calculator */,
+				5C73BCF716E9E5AB005B4DCA /* ViewControllers */,
+				5C73BCFC16E9F333005B4DCA /* Graph */,
 				5C70B3E116E7D663007FFD4C /* CalculatorAppDelegate.h */,
 				5C70B3E216E7D663007FFD4C /* CalculatorAppDelegate.m */,
-				5C70B3EA16E7D663007FFD4C /* MainStoryboard.storyboard */,
-				5C70B3F516E7DF05007FFD4C /* CalculatorBrain.h */,
-				5C70B3F616E7DF05007FFD4C /* CalculatorBrain.m */,
-				5C70B3ED16E7D663007FFD4C /* CalculatorViewController.h */,
-				5C70B3EE16E7D663007FFD4C /* CalculatorViewController.m */,
+				5C70B3EA16E7D663007FFD4C /* MainStoryboard~iphone.storyboard */,
+				5C73BD0616E9F8A9005B4DCA /* MainStoryboard~ipad.storyboard */,
 				5C70B3D916E7D663007FFD4C /* Supporting Files */,
-				5C73BCF116E8B28E005B4DCA /* ProgramOperand.h */,
-				5C73BCF216E8B28E005B4DCA /* ProgramOperand.m */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -115,6 +136,47 @@
 				5C70B3E816E7D663007FFD4C /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5C73BCF716E9E5AB005B4DCA /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5C70B3ED16E7D663007FFD4C /* CalculatorViewController.h */,
+				5C70B3EE16E7D663007FFD4C /* CalculatorViewController.m */,
+				5C73BCF916E9E9F7005B4DCA /* CalculatorGraphViewController.h */,
+				5C73BCFA16E9E9F7005B4DCA /* CalculatorGraphViewController.mm */,
+				5C73BD0316E9F4CD005B4DCA /* CalculatorNavigationController.h */,
+				5C73BD0416E9F4CD005B4DCA /* CalculatorNavigationController.m */,
+				5C73BD0016E9F4AD005B4DCA /* CalculatorSplitViewController.h */,
+				5C73BD0116E9F4AD005B4DCA /* CalculatorSplitViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		5C73BCF816E9E5B8005B4DCA /* Calculator */ = {
+			isa = PBXGroup;
+			children = (
+				5C70B3F516E7DF05007FFD4C /* CalculatorBrain.h */,
+				5C70B3F616E7DF05007FFD4C /* CalculatorBrain.m */,
+				5C73BCF116E8B28E005B4DCA /* ProgramOperand.h */,
+				5C73BCF216E8B28E005B4DCA /* ProgramOperand.m */,
+				5C81FD8B16ECDA7300A514FB /* CalculatorVariable.h */,
+				5C81FD8C16ECDA7300A514FB /* CalculatorVariable.m */,
+				5C81FD8E16ECF15000A514FB /* CalculatorNumber.h */,
+				5C81FD8F16ECF15000A514FB /* CalculatorNumber.m */,
+			);
+			name = Calculator;
+			sourceTree = "<group>";
+		};
+		5C73BCFC16E9F333005B4DCA /* Graph */ = {
+			isa = PBXGroup;
+			children = (
+				5C73BCF416E9E595005B4DCA /* AxesDrawer.h */,
+				5C73BCF516E9E595005B4DCA /* AxesDrawer.m */,
+				5C73BCFD16E9F3BC005B4DCA /* CalculatorGraphView.h */,
+				5C73BCFE16E9F3BC005B4DCA /* CalculatorGraphView.m */,
+			);
+			name = Graph;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,7 +235,8 @@
 				5C70B3E516E7D663007FFD4C /* Default.png in Resources */,
 				5C70B3E716E7D663007FFD4C /* Default@2x.png in Resources */,
 				5C70B3E916E7D663007FFD4C /* Default-568h@2x.png in Resources */,
-				5C70B3EC16E7D663007FFD4C /* MainStoryboard.storyboard in Resources */,
+				5C70B3EC16E7D663007FFD4C /* MainStoryboard~iphone.storyboard in Resources */,
+				5C73BD0716E9F8A9005B4DCA /* MainStoryboard~ipad.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,6 +252,13 @@
 				5C70B3EF16E7D663007FFD4C /* CalculatorViewController.m in Sources */,
 				5C70B3F716E7DF05007FFD4C /* CalculatorBrain.m in Sources */,
 				5C73BCF316E8B28E005B4DCA /* ProgramOperand.m in Sources */,
+				5C73BCF616E9E595005B4DCA /* AxesDrawer.m in Sources */,
+				5C73BCFB16E9E9F7005B4DCA /* CalculatorGraphViewController.mm in Sources */,
+				5C73BCFF16E9F3BC005B4DCA /* CalculatorGraphView.m in Sources */,
+				5C73BD0216E9F4AD005B4DCA /* CalculatorSplitViewController.m in Sources */,
+				5C73BD0516E9F4CD005B4DCA /* CalculatorNavigationController.m in Sources */,
+				5C81FD8D16ECDA7300A514FB /* CalculatorVariable.m in Sources */,
+				5C81FD9016ECF15000A514FB /* CalculatorNumber.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,12 +273,12 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		5C70B3EA16E7D663007FFD4C /* MainStoryboard.storyboard */ = {
+		5C70B3EA16E7D663007FFD4C /* MainStoryboard~iphone.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				5C70B3EB16E7D663007FFD4C /* en */,
 			);
-			name = MainStoryboard.storyboard;
+			name = "MainStoryboard~iphone.storyboard";
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -276,7 +346,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Calculator/Calculator-Prefix.pch";
 				INFOPLIST_FILE = "Calculator/Calculator-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -287,7 +359,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Calculator/Calculator-Prefix.pch";
 				INFOPLIST_FILE = "Calculator/Calculator-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

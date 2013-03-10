@@ -8,21 +8,33 @@
 
 #import "CalculatorViewController.h"
 #import "CalculatorBrain.h"
+#import "CalculatorGraphViewController.h"
 
 @interface CalculatorViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *display;
 @property (weak, nonatomic) IBOutlet UILabel *description;
-@property (weak, nonatomic) IBOutlet UILabel *variableValues;
 
+@property (nonatomic, strong) CalculatorGraphViewController *graphViewController;
 @property (nonatomic) BOOL userIsInTheMiddleOfEnteringANumber;
 @property (nonatomic) BOOL numberIsFloatingPoint;
 @property (nonatomic, strong) CalculatorBrain *brain;
-@property (nonatomic, strong) NSDictionary *testVariableValues;
 
 @end
 
 @implementation CalculatorViewController
+
+- (void)viewDidLoad
+{
+  self.graphViewController = (CalculatorGraphViewController *)[self.splitViewController.viewControllers lastObject];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+  [self.navigationController setNavigationBarHidden:YES animated:YES];
+}
+
+#pragma mark - properties
 
 - (CalculatorBrain *)brain
 {
@@ -32,10 +44,7 @@
   return _brain;
 }
 
-- (NSDictionary *)testVariableValues
-{
-  return _testVariableValues;
-}
+#pragma mark - IBActions
 
 - (IBAction)digitPressed:(UIButton *)sender
 {
@@ -118,38 +127,30 @@
   [self updateDisplay];
 }
 
-- (IBAction)testPressed:(UIButton *)sender
-{
-  switch (sender.tag) {
-    case 0:
-      _testVariableValues = [NSDictionary dictionaryWithObjectsAndKeys:@215, @"x", @742, @"a", @584.9, @"b", nil];
-      break;
-    case 1:
-      _testVariableValues = [NSDictionary dictionaryWithObjectsAndKeys:@15.84, @"x", @2, @"a", @-582.9, @"b", nil];
-      break;
-    case 2:
-      _testVariableValues = nil;
-      break;
-      
-    default:
-      break;
-  }
-  [self updateDisplay];
-}
-
-- (void)updateVariablesValuesLabel
-{
-  self.variableValues.text = @"";
-  for (NSString *variable in [CalculatorBrain variablesUsedInProgram:self.brain.program]) {
-    self.variableValues.text = [self.variableValues.text stringByAppendingString:[NSString stringWithFormat:@"%@ = %@   ", variable, ZERO_IF_NIL([self.testVariableValues objectForKey:variable])]];
-  }
-}
-
 - (void)updateDisplay
 {
-  self.display.text = [NSString stringWithFormat:@"%@", [CalculatorBrain runProgram:self.brain.program usingVariableValues:self.testVariableValues]];
+  self.display.text = [NSString stringWithFormat:@"%@", [CalculatorBrain runProgram:self.brain.program usingVariableValues:nil]];
   self.description.text = [CalculatorBrain descriptionOfProgram:self.brain.program];
-  [self updateVariablesValuesLabel];
+}
+
+#pragma mark - showing graph of current program
+
+- (IBAction)graphPressed
+{
+  if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+    [self performSegueWithIdentifier:@"graph" sender:self];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+  } else {
+    self.graphViewController.program = self.brain.program;
+  }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+  if ([[segue identifier] isEqualToString:@"graph"]) {
+    CalculatorGraphViewController *graphViewController = [segue destinationViewController];
+    graphViewController.program = self.brain.program;
+  }
 }
 
 @end

@@ -14,7 +14,7 @@
 
 using namespace std;
 
-@interface CalculatorGraphViewController () <CalculatorGraphDataSource>
+@interface CalculatorGraphViewController () <CalculatorGraphDataSource, UIGestureRecognizerDelegate>
 
 @property (nonatomic, weak) IBOutlet CalculatorGraphView *graph;
 @property (weak, nonatomic) IBOutlet UILabel *programDescription;
@@ -34,7 +34,9 @@ using namespace std;
   UITapGestureRecognizer *tripleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTripleTapGesture:)];
   tripleTapGesture.numberOfTapsRequired = 3;
   UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
+  panGesture.delegate = self;
   UIPinchGestureRecognizer *pinchGesture = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchGesture:)];
+  pinchGesture.delegate = self;
   
   [self.graph addGestureRecognizer:tripleTapGesture];
   [self.graph addGestureRecognizer:panGesture];
@@ -93,6 +95,11 @@ using namespace std;
       [self.graph saveProperties];
     }
   }
+}
+
+-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+  return YES;
 }
 
 #pragma mark - drawing new graph

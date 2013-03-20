@@ -47,7 +47,7 @@ using namespace std;
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(deviceOrientationDidChange:) name: UIDeviceOrientationDidChangeNotification object: nil];
   }
   
-  [self.drawingModeSwitch setOn:self.graph.drawingType == CalculatorGraphDrawingTypeContinuous animated:NO];
+  [self.drawingModeSwitch setOn:self.graph.drawingType == CalculatorDrawerTypeContinuous animated:NO];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -155,9 +155,9 @@ using namespace std;
 
 - (IBAction)drawingModeChanged:(UISwitch *)sender {
   if (sender.on) {
-    self.graph.drawingType = CalculatorGraphDrawingTypeContinuous;
+    self.graph.drawingType = CalculatorDrawerTypeContinuous;
   } else {
-    self.graph.drawingType = CalculatorGraphDrawingTypeDiscreet;
+    self.graph.drawingType = CalculatorDrawerTypeDiscrete;
   }
 }
 

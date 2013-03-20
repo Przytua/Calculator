@@ -48,13 +48,16 @@
 
 - (IBAction)digitPressed:(UIButton *)sender
 {
-  NSString *digit = [sender currentTitle];
-  if ([digit isEqualToString:@"."]) {
+  NSString *digit;
+  if (sender.tag == 10) {
+    digit = @".";
     if (self.numberIsFloatingPoint) {
       return;
     }
     self.userIsInTheMiddleOfEnteringANumber = YES;
     self.numberIsFloatingPoint = YES;
+  } else {
+    digit = [NSString stringWithFormat:@"%i", sender.tag];
   }
   if (self.userIsInTheMiddleOfEnteringANumber) {
     if (! ([digit isEqualToString:@"0"] && [self.display.text isEqualToString:@"0"])) {
@@ -101,9 +104,8 @@
 
 - (IBAction)operationPressed:(UIButton *)sender
 {
-  NSString *operation = [sender currentTitle];
   if (self.userIsInTheMiddleOfEnteringANumber) {
-    if ([operation isEqualToString:@"+/-"]) {
+    if (sender.tag == 4) {
       if ([[self.display.text substringToIndex:1] isEqualToString:@"-"]) {
         self.display.text = [self.display.text substringFromIndex:1];
       } else {
@@ -111,19 +113,55 @@
       }
       return;
     }
-    [self enterPressed];
+    [self enterPressed];    
   }
-  [self.brain pushOperand:operation];
+  switch (sender.tag) {
+    case 0:
+      [self.brain addOperation:CalculatorOperationTypeMultiplying];
+      break;
+    case 1:
+      [self.brain addOperation:CalculatorOperationTypeDividing];
+      break;
+    case 2:
+      [self.brain addOperation:CalculatorOperationTypeAdding];
+      break;
+    case 3:
+      [self.brain addOperation:CalculatorOperationTypeSubstracting];
+      break;
+    case 4:
+      [self.brain addOperation:CalculatorOperationTypeSignChanging];
+      break;
+    case 5:
+      [self.brain addOperation:CalculatorOperationTypePi];
+      break;
+    case 6:
+      [self.brain addOperation:CalculatorOperationTypeEulerNumber];
+      break;
+    case 7:
+      [self.brain addOperation:CalculatorOperationTypeSinus];
+      break;
+    case 8:
+      [self.brain addOperation:CalculatorOperationTypeCosinus];
+      break;
+    case 9:
+      [self.brain addOperation:CalculatorOperationTypeSquareRoot];
+      break;
+    case 10:
+      [self.brain addOperation:CalculatorOperationTypeLogarithm];
+      break;
+      
+    default:
+      break;
+  }
   [self updateDisplay];
 }
 
 - (IBAction)variablePressed:(UIButton *)sender
 {
-  NSString *variable = [sender currentTitle];
   if (self.userIsInTheMiddleOfEnteringANumber) {
     [self enterPressed];
   }
-  [self.brain pushOperand:variable];
+  [self.brain addVariable:@"x"];
   [self updateDisplay];
 }
 

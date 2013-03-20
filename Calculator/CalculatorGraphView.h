@@ -7,19 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-typedef enum {
-  CalculatorGraphDrawingTypeDiscreet = 0,
-  CalculatorGraphDrawingTypeContinuous = 1
-} CalculatorGraphDrawingType;
-
-@class CalculatorGraphView;
-
-@protocol CalculatorGraphDataSource <NSObject>
-
-- (CGFloat)graph:(CalculatorGraphView *)graph yValueForX:(CGFloat)xValue;
-
-@end
+#import "CalculatorGraphDataSource.h"
+#import "CalculatorDrawerType.h"
 
 @interface CalculatorGraphView : UIView
 
@@ -27,7 +16,7 @@ typedef enum {
 
 @property (nonatomic) CGPoint origin;
 @property (nonatomic) CGFloat scale;
-@property (nonatomic) CalculatorGraphDrawingType drawingType;
+@property (nonatomic) CalculatorDrawerType drawingType;
 
 - (void)loadProperties;
 - (void)saveProperties;

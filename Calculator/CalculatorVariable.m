@@ -10,11 +10,11 @@
 
 @implementation CalculatorVariable
 
-- initWithVariableName:(NSString *)name
+- initWithVariableName:(NSString *)name;
 {
   self = [super init];
   if (self) {
-    self.variableName = name;
+    _variableName = name;
   }
   return self;
 }
@@ -27,6 +27,33 @@
 - (unichar)characterAtIndex:(NSUInteger)index
 {
   return [self.variableName characterAtIndex:index];
+}
+
+- (double)value
+{
+  return self.variableValue;
+}
+
+- (NSString *)description
+{
+  return _variableName;
+}
+
+- (NSArray *)variables
+{
+  return [NSArray array];
+}
+
+- (void)setVariableValues:(NSDictionary *)variableValues
+{
+  self.variableValue = 0;
+  if ([variableValues objectForKey:self.variableName]) {
+    self.variableValue = [[variableValues objectForKey:self.variableName] doubleValue];
+  }
+}
+
+- (void)addSubobjectsToStack:(NSMutableArray *)stack;
+{
 }
 
 @end

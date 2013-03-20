@@ -12,6 +12,7 @@ static NSString *const kDrawingTypeKey = @"GraphViewDrawingType";
 
 #import "CalculatorGraphView.h"
 #import "AxesDrawer.h"
+#import "GraphDrawer.h"
 
 @interface CalculatorGraphView ()
 
@@ -38,12 +39,12 @@ static NSString *const kDrawingTypeKey = @"GraphViewDrawingType";
   return [NSString stringWithFormat:@"%@%d", kDrawingTypeKey, self.tag];
 }
 
-- (CalculatorGraphDrawingType)drawingType
+- (CalculatorDrawerType)drawingType
 {
   return [[NSUserDefaults standardUserDefaults] integerForKey:[self drawingTypeKey]];
 }
 
-- (void)setDrawingType:(CalculatorGraphDrawingType)drawingType
+- (void)setDrawingType:(CalculatorDrawerType)drawingType
 {
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
   
@@ -118,36 +119,10 @@ static NSString *const kDrawingTypeKey = @"GraphViewDrawingType";
 
 - (void)drawRect:(CGRect)rect
 {
-  CGContextRef currentContext = UIGraphicsGetCurrentContext();
   [AxesDrawer drawAxesInRect:rect originAtPoint:self.origin scale:self.scale];
-  CGFloat pixelSize = 1.0f / [self contentScaleFactor];
-  CGFloat incrementationValue = (self.frame.size.width / self.scale) / (self.frame.size.width * [self contentScaleFactor]);
-  if (self.drawingType == CalculatorGraphDrawingTypeDiscreet) {
-    for (CGFloat x = -self.origin.x / self.scale;
-         x < (self.frame.size.width - self.origin.x) / self.scale;
-         x += incrementationValue) {
-      CGFloat y = [self.dataSource graph:self yValueForX:x];
-      CGContextFillRect(currentContext, CGRectMake(x * self.scale + self.origin.x,
-                                                   self.origin.y - y * self.scale,
-                                                   pixelSize, pixelSize));
-    }
-  } else {
-    CGFloat x = -self.origin.x / self.scale;
-    CGFloat y = [self.dataSource graph:self yValueForX:x];
-    CGContextMoveToPoint(currentContext,
-                         x * self.scale + self.origin.x,
-                         self.origin.y - y * self.scale);
-    
-    for (x += incrementationValue;
-         x < (self.frame.size.width - self.origin.x) / self.scale;
-         x += incrementationValue) {
-      y = [self.dataSource graph:self yValueForX:x];
-      CGContextAddLineToPoint(currentContext,
-                              x * self.scale + self.origin.x,
-                              self.origin.y - y * self.scale);
-    }
-    CGContextStrokePath(currentContext);
-  }
+  GraphDrawer *drawer = [GraphDrawer drawerOfType:self.drawingType];
+  drawer.dataSource = self.dataSource;
+  [drawer drawInRect:self.frame originAtPoint:self.origin scale:self.scale onGraph:self];
 }
 
 @end

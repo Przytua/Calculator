@@ -9,11 +9,14 @@
 #define B_IF_A_NIL(A,B)	({ __typeof__(A) __a = (A); __typeof__(B) __b = (B); __a == nil ? __b : __a; })
 
 #import <Foundation/Foundation.h>
+#import "CalculatorOperationType.h"
 
 @interface CalculatorBrain : NSObject
 
 - (void)pushOperand:(id)operand;
 - (void)popOperand;
+- (void)addOperation:(CalculatorOperationType)type;
+- (void)addVariable:(NSString *)name;
 - (id)performOperation:(NSString *)operation;
 - (void)clear;
 

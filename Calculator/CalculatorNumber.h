@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Mildware. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "CalculatorProgramObject.h"
 
-@interface CalculatorNumber : NSObject
+@interface CalculatorNumber : CalculatorProgramObject
 
 @property (nonatomic) double doubleValue;
 

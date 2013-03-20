@@ -6,11 +6,12 @@
 //  Copyright (c) 2013 Mildware. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "CalculatorProgramObject.h"
 
-@interface CalculatorVariable : NSObject;
+@interface CalculatorVariable : CalculatorProgramObject;
 
 @property (nonatomic, strong) NSString *variableName;
+@property (nonatomic) double variableValue;
 
 - initWithVariableName:(NSString *)name;
 

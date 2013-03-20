@@ -19,6 +19,11 @@
   return self;
 }
 
+- (double)value
+{
+  return _doubleValue;
+}
+
 - (double)doubleValue
 {
   return _doubleValue;
@@ -27,6 +32,19 @@
 - (NSString *)description
 {
   return [NSString stringWithFormat:@"%g", _doubleValue];
+}
+
+- (NSArray *)variables
+{
+  return [NSArray arrayWithObject:self];
+}
+
+- (void)setVariableValues:(NSDictionary *)variableValues
+{
+}
+
+- (void)addSubobjectsToStack:(NSMutableArray *)stack;
+{
 }
 
 @end

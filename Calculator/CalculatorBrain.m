@@ -7,7 +7,7 @@
 //
 
 #import "CalculatorBrain.h"
-#import "ProgramOperand.h"
+#import "CalculatorOperation.h"
 #import "CalculatorVariable.h"
 #import "CalculatorNumber.h"
 
@@ -21,15 +21,6 @@ static NSSet *variablesInLastProgram;
 @end
 
 @implementation CalculatorBrain
-
-+ (NSSet *)operationsSet
-{
-  static NSSet *operationsSet;
-  if (!operationsSet) {
-    operationsSet = [NSSet setWithObjects:@"*", @"/", @"+", @"-", @"π", @"sin", @"cos", @"sqrt", @"+/-", @"e", @"log", nil];
-  }
-  return operationsSet;
-}
 
 - (NSMutableArray *)programStack
 {
@@ -45,18 +36,20 @@ static NSSet *variablesInLastProgram;
 + (NSString *)descriptionOfProgram:(id)program
 {
   NSMutableArray *stack;
-  NSMutableString *description = [[NSMutableString alloc] init];
   if ([program isKindOfClass:[NSArray class]]) {
     stack = [program mutableCopy];
-    while ([stack count] > 0) {
-      NSString *operationDescription = [[[ProgramOperand alloc] initWithStack:stack andOperationsTypes:self.operationsSet] description];
-      if ([operationDescription rangeOfString:@"("].location == 0) {
-        operationDescription = [operationDescription substringWithRange:NSMakeRange(1, [operationDescription length] - 2)];
+    if ([stack count] > 0) {
+      NSMutableString *programDescription = [[NSMutableString alloc] init];
+      while ([stack count] > 0) {
+        CalculatorProgramObject *cpo = stack.lastObject;
+        [stack removeLastObject];
+        NSString *description = cpo.description;
+        if ([description rangeOfString:@"("].location == 0) {
+          description = [description substringWithRange:NSMakeRange(1, [description length] - 2)];
+        }
+        [programDescription appendFormat:@"%@, ", description];
       }
-      [description appendFormat:@"%@, ", operationDescription];
-    }
-    if ([description length] > 2) {
-      return [description substringToIndex:[description length] - 2];
+      return [programDescription substringToIndex:[programDescription length] - 2];
     }
   }
   return @"";
@@ -67,8 +60,9 @@ static NSSet *variablesInLastProgram;
 - (void)pushOperand:(id)operand
 {
   if ([operand isKindOfClass:[NSString class]]) {
-    if (![[[self class] operationsSet] containsObject:operand]) {
-      [self.programStack addObject:[[CalculatorVariable alloc] initWithVariableName:operand]];
+    id operation = [[CalculatorVariable alloc] initWithVariableName:operand];
+    if (operation) {
+      [self.programStack addObject:operation];
     } else {
       [self.programStack addObject:operand];
     }
@@ -80,8 +74,20 @@ static NSSet *variablesInLastProgram;
 - (void)popOperand
 {
   if ([self.programStack count] > 0) {
+    CalculatorProgramObject *lastObject = [self.programStack lastObject];
     [self.programStack removeLastObject];
+    [lastObject addSubobjectsToStack:self.programStack];
   }
+}
+
+- (void)addOperation:(CalculatorOperationType)type
+{
+  [self.programStack addObject:[CalculatorOperation operationWithType:type andProgramStack:self.programStack]];
+}
+
+- (void)addVariable:(NSString *)name
+{
+  [self.programStack addObject:[[CalculatorVariable alloc] initWithVariableName:name]];
 }
 
 - (id)performOperation:(NSString *)operation
@@ -108,13 +114,7 @@ static NSSet *variablesInLastProgram;
   NSMutableArray *stack;
   if ([program isKindOfClass:[NSArray class]]) {
     stack = [program mutableCopy];
-    for (CalculatorVariable *variable in [self variablesUsedInProgram:program]) {
-      id variableValue = [variableValues objectForKey:variable.variableName];
-      if (!variableValue || ![variableValue isKindOfClass:[NSNumber class]]) {
-        variableValue = [NSNumber numberWithDouble:0.0f];
-      }
-      [stack replaceObjectAtIndex:[stack indexOfObject:variable] withObject:variableValue];
-    }
+    [((CalculatorProgramObject *)stack.lastObject) setVariableValues:variableValues];
   }
   id result = [self popAndComputeOperandOffProgramStack:stack];
   if ([result isKindOfClass:[NSString class]]) {
@@ -132,15 +132,12 @@ static NSSet *variablesInLastProgram;
     return variablesInLastProgram;
   }
   NSArray *stack;
-  NSMutableSet *result = [[NSMutableSet alloc] init];
+  NSSet *result;
   if ([program isKindOfClass:[NSArray class]]) {
     stack = program;
     lastProgram = program;
-    for (id item in stack) {
-      if ([item isKindOfClass:[CalculatorVariable class]]) {
-        [result addObject:item];
-      }
-    }
+    CalculatorProgramObject *stackItem = stack.lastObject;
+    result = [NSSet setWithArray:stackItem.variables];
   }
   variablesInLastProgram = result;
   return result;
@@ -150,66 +147,17 @@ static NSSet *variablesInLastProgram;
 {
   double result = 0;
   
-  id topOfStack = [stack lastObject];
+  CalculatorProgramObject *topOfStack = [stack lastObject];
   if (topOfStack) {
     [stack removeLastObject];
-  } else {
-    return [NSDecimalNumber notANumber];
-  }
-  
-  if ([topOfStack isKindOfClass:[NSString class]])
-  {
-    NSString *operation = topOfStack;
-    if ([operation isEqualToString:@"π"]) {
-      result = M_PI;
-    } else if ([operation isEqualToString:@"e"]) {
-      result = M_E;
+    result = [topOfStack value];
+    if (!isnan(result)) {
+      return [[CalculatorNumber alloc] initWithValue:result];
     } else {
-      id operand1 = [self popAndComputeOperandOffProgramStack:stack];
-      if ([operand1 isKindOfClass:[NSString class]]) {
-        return operand1;
-      }
-      if ([operation isEqualToString:@"sin"]) {
-        result = sin([operand1 doubleValue]);
-      } else if ([operation isEqualToString:@"cos"]) {
-        result = cos([operand1 doubleValue]);
-      } else if ([operation isEqualToString:@"sqrt"]) {
-        double operand = [operand1 doubleValue];
-        if (operand < 0) return @"Sqrt of negative";
-        result = sqrt(operand);
-      } else if ([operation isEqualToString:@"+/-"]) {
-        result = -[operand1 doubleValue];
-      } else if ([operation isEqualToString:@"log"]) {
-        result = log([operand1 doubleValue]);
-      } else {
-        id operand2 = [self popAndComputeOperandOffProgramStack:stack];
-        if ([operand2 isKindOfClass:[NSString class]]) {
-          return operand2;
-        }
-        if ([operation isEqualToString:@"+"]) {
-          result = [operand1 doubleValue] + [operand2 doubleValue];
-        } else if ([operation isEqualToString:@"*"]) {
-          result = [operand1 doubleValue] * [operand2 doubleValue];
-        } else if ([operation isEqualToString:@"-"]) {
-//          double subtrahend = [[self popAndComputeOperandOffProgramStack:stack] doubleValue];
-          result = [operand2 doubleValue] - [operand1 doubleValue];
-        } else if ([operation isEqualToString:@"/"]) {
-//          double divisor = [[self popAndComputeOperandOffProgramStack:stack] doubleValue];
-          if ([operand1 doubleValue] == 0) {
-            return @"Division by zero";
-          }
-          result = [operand2 doubleValue] / [operand1 doubleValue];
-        }
-      }
+      return [topOfStack error];
     }
-  } else {
-    result = [topOfStack doubleValue];
   }
-  
-  if (isnan(result)) {
-    return @"Insuff. operands";
-  }
-  return [[CalculatorNumber alloc] initWithValue:result];
+  return @"0";
 }
 
 @end

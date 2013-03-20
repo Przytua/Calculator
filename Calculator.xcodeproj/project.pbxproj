@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C2D173616F6EE180074F418 /* GraphDiscreteDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C2D173516F6EE180074F418 /* GraphDiscreteDrawer.m */; };
+		5C2D173916F6EE2B0074F418 /* GraphLinearDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C2D173816F6EE2B0074F418 /* GraphLinearDrawer.m */; };
 		5C70B3D316E7D663007FFD4C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C70B3D216E7D663007FFD4C /* UIKit.framework */; };
 		5C70B3D516E7D663007FFD4C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C70B3D416E7D663007FFD4C /* Foundation.framework */; };
 		5C70B3D716E7D663007FFD4C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C70B3D616E7D663007FFD4C /* CoreGraphics.framework */; };
@@ -19,7 +21,23 @@
 		5C70B3EC16E7D663007FFD4C /* MainStoryboard~iphone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C70B3EA16E7D663007FFD4C /* MainStoryboard~iphone.storyboard */; };
 		5C70B3EF16E7D663007FFD4C /* CalculatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C70B3EE16E7D663007FFD4C /* CalculatorViewController.m */; };
 		5C70B3F716E7DF05007FFD4C /* CalculatorBrain.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C70B3F616E7DF05007FFD4C /* CalculatorBrain.m */; };
-		5C73BCF316E8B28E005B4DCA /* ProgramOperand.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C73BCF216E8B28E005B4DCA /* ProgramOperand.m */; };
+		5C72FE8116F1E97100849F06 /* CalculatorProgramObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C72FE8016F1E97100849F06 /* CalculatorProgramObject.m */; };
+		5C72FE8416F1EC8100849F06 /* CalculatorAddingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C72FE8316F1EC8100849F06 /* CalculatorAddingOperation.m */; };
+		5C72FE8716F1EC9700849F06 /* CalculatorSubstractingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C72FE8616F1EC9700849F06 /* CalculatorSubstractingOperation.m */; };
+		5C72FE8A16F1ECC700849F06 /* CalculatorMultiplyingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C72FE8916F1ECC700849F06 /* CalculatorMultiplyingOperation.m */; };
+		5C72FE8D16F1ED2400849F06 /* CalculatorDividingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C72FE8C16F1ED2400849F06 /* CalculatorDividingOperation.m */; };
+		5C72FE9016F1EDE700849F06 /* CalculatorSinusFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C72FE8F16F1EDE700849F06 /* CalculatorSinusFunction.m */; };
+		5C72FE9316F1EE8A00849F06 /* CalculatorCosinusFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C72FE9216F1EE8900849F06 /* CalculatorCosinusFunction.m */; };
+		5C72FE9616F1EE9E00849F06 /* CalculatorSquareRootFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C72FE9516F1EE9E00849F06 /* CalculatorSquareRootFunction.m */; };
+		5C72FE9916F1EEE700849F06 /* CalculatorLogarithmFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C72FE9816F1EEE600849F06 /* CalculatorLogarithmFunction.m */; };
+		5C72FE9C16F1EF0A00849F06 /* CalculatorSignChangingFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C72FE9B16F1EF0900849F06 /* CalculatorSignChangingFunction.m */; };
+		5C72FE9F16F1EF1C00849F06 /* CalculatorPiNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C72FE9E16F1EF1C00849F06 /* CalculatorPiNumber.m */; };
+		5C72FEA216F1EF4F00849F06 /* CalculatorEulerNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C72FEA116F1EF4F00849F06 /* CalculatorEulerNumber.m */; };
+		5C72FEA516F358A300849F06 /* CalculatorTwoOperandOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C72FEA416F358A000849F06 /* CalculatorTwoOperandOperation.m */; };
+		5C72FEA816F36A0300849F06 /* CalculatorNoOperandOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C72FEA716F36A0000849F06 /* CalculatorNoOperandOperation.m */; };
+		5C72FEAB16F36BE900849F06 /* CalculatorOneOperandOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C72FEAA16F36BE600849F06 /* CalculatorOneOperandOperation.m */; };
+		5C72FEAF16F374CA00849F06 /* GraphDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C72FEAE16F374CA00849F06 /* GraphDrawer.m */; };
+		5C73BCF316E8B28E005B4DCA /* CalculatorOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C73BCF216E8B28E005B4DCA /* CalculatorOperation.m */; };
 		5C73BCF616E9E595005B4DCA /* AxesDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C73BCF516E9E595005B4DCA /* AxesDrawer.m */; };
 		5C73BCFB16E9E9F7005B4DCA /* CalculatorGraphViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5C73BCFA16E9E9F7005B4DCA /* CalculatorGraphViewController.mm */; };
 		5C73BCFF16E9F3BC005B4DCA /* CalculatorGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C73BCFE16E9F3BC005B4DCA /* CalculatorGraphView.m */; };
@@ -31,6 +49,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5C2D173216F6E90D0074F418 /* CalculatorGraphDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalculatorGraphDataSource.h; sourceTree = "<group>"; };
+		5C2D173316F6ED190074F418 /* CalculatorOperationType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalculatorOperationType.h; sourceTree = "<group>"; };
+		5C2D173416F6EE180074F418 /* GraphDiscreteDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphDiscreteDrawer.h; sourceTree = "<group>"; };
+		5C2D173516F6EE180074F418 /* GraphDiscreteDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphDiscreteDrawer.m; sourceTree = "<group>"; };
+		5C2D173716F6EE2B0074F418 /* GraphLinearDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphLinearDrawer.h; sourceTree = "<group>"; };
+		5C2D173816F6EE2B0074F418 /* GraphLinearDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphLinearDrawer.m; sourceTree = "<group>"; };
+		5C2D173B16F6EF860074F418 /* CalculatorDrawerType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalculatorDrawerType.h; sourceTree = "<group>"; };
 		5C70B3CF16E7D663007FFD4C /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C70B3D216E7D663007FFD4C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5C70B3D416E7D663007FFD4C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -49,8 +74,40 @@
 		5C70B3EE16E7D663007FFD4C /* CalculatorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalculatorViewController.m; sourceTree = "<group>"; };
 		5C70B3F516E7DF05007FFD4C /* CalculatorBrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorBrain.h; sourceTree = "<group>"; };
 		5C70B3F616E7DF05007FFD4C /* CalculatorBrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorBrain.m; sourceTree = "<group>"; };
-		5C73BCF116E8B28E005B4DCA /* ProgramOperand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramOperand.h; sourceTree = "<group>"; };
-		5C73BCF216E8B28E005B4DCA /* ProgramOperand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramOperand.m; sourceTree = "<group>"; };
+		5C72FE7F16F1E97100849F06 /* CalculatorProgramObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorProgramObject.h; sourceTree = "<group>"; };
+		5C72FE8016F1E97100849F06 /* CalculatorProgramObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorProgramObject.m; sourceTree = "<group>"; };
+		5C72FE8216F1EC8100849F06 /* CalculatorAddingOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorAddingOperation.h; sourceTree = "<group>"; };
+		5C72FE8316F1EC8100849F06 /* CalculatorAddingOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorAddingOperation.m; sourceTree = "<group>"; };
+		5C72FE8516F1EC9700849F06 /* CalculatorSubstractingOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorSubstractingOperation.h; sourceTree = "<group>"; };
+		5C72FE8616F1EC9700849F06 /* CalculatorSubstractingOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorSubstractingOperation.m; sourceTree = "<group>"; };
+		5C72FE8816F1ECC700849F06 /* CalculatorMultiplyingOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorMultiplyingOperation.h; sourceTree = "<group>"; };
+		5C72FE8916F1ECC700849F06 /* CalculatorMultiplyingOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorMultiplyingOperation.m; sourceTree = "<group>"; };
+		5C72FE8B16F1ED2400849F06 /* CalculatorDividingOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorDividingOperation.h; sourceTree = "<group>"; };
+		5C72FE8C16F1ED2400849F06 /* CalculatorDividingOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorDividingOperation.m; sourceTree = "<group>"; };
+		5C72FE8E16F1EDE700849F06 /* CalculatorSinusFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorSinusFunction.h; sourceTree = "<group>"; };
+		5C72FE8F16F1EDE700849F06 /* CalculatorSinusFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorSinusFunction.m; sourceTree = "<group>"; };
+		5C72FE9116F1EE8800849F06 /* CalculatorCosinusFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorCosinusFunction.h; sourceTree = "<group>"; };
+		5C72FE9216F1EE8900849F06 /* CalculatorCosinusFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorCosinusFunction.m; sourceTree = "<group>"; };
+		5C72FE9416F1EE9D00849F06 /* CalculatorSquareRootFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorSquareRootFunction.h; sourceTree = "<group>"; };
+		5C72FE9516F1EE9E00849F06 /* CalculatorSquareRootFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorSquareRootFunction.m; sourceTree = "<group>"; };
+		5C72FE9716F1EEE600849F06 /* CalculatorLogarithmFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorLogarithmFunction.h; sourceTree = "<group>"; };
+		5C72FE9816F1EEE600849F06 /* CalculatorLogarithmFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorLogarithmFunction.m; sourceTree = "<group>"; };
+		5C72FE9A16F1EF0800849F06 /* CalculatorSignChangingFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorSignChangingFunction.h; sourceTree = "<group>"; };
+		5C72FE9B16F1EF0900849F06 /* CalculatorSignChangingFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorSignChangingFunction.m; sourceTree = "<group>"; };
+		5C72FE9D16F1EF1B00849F06 /* CalculatorPiNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorPiNumber.h; sourceTree = "<group>"; };
+		5C72FE9E16F1EF1C00849F06 /* CalculatorPiNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorPiNumber.m; sourceTree = "<group>"; };
+		5C72FEA016F1EF4E00849F06 /* CalculatorEulerNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorEulerNumber.h; sourceTree = "<group>"; };
+		5C72FEA116F1EF4F00849F06 /* CalculatorEulerNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorEulerNumber.m; sourceTree = "<group>"; };
+		5C72FEA316F3589E00849F06 /* CalculatorTwoOperandOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorTwoOperandOperation.h; sourceTree = "<group>"; };
+		5C72FEA416F358A000849F06 /* CalculatorTwoOperandOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorTwoOperandOperation.m; sourceTree = "<group>"; };
+		5C72FEA616F369FD00849F06 /* CalculatorNoOperandOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorNoOperandOperation.h; sourceTree = "<group>"; };
+		5C72FEA716F36A0000849F06 /* CalculatorNoOperandOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorNoOperandOperation.m; sourceTree = "<group>"; };
+		5C72FEA916F36BE400849F06 /* CalculatorOneOperandOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorOneOperandOperation.h; sourceTree = "<group>"; };
+		5C72FEAA16F36BE600849F06 /* CalculatorOneOperandOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorOneOperandOperation.m; sourceTree = "<group>"; };
+		5C72FEAD16F374CA00849F06 /* GraphDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphDrawer.h; sourceTree = "<group>"; };
+		5C72FEAE16F374CA00849F06 /* GraphDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphDrawer.m; sourceTree = "<group>"; };
+		5C73BCF116E8B28E005B4DCA /* CalculatorOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorOperation.h; sourceTree = "<group>"; };
+		5C73BCF216E8B28E005B4DCA /* CalculatorOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorOperation.m; sourceTree = "<group>"; };
 		5C73BCF416E9E595005B4DCA /* AxesDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AxesDrawer.h; sourceTree = "<group>"; };
 		5C73BCF516E9E595005B4DCA /* AxesDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AxesDrawer.m; sourceTree = "<group>"; };
 		5C73BCF916E9E9F7005B4DCA /* CalculatorGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorGraphViewController.h; sourceTree = "<group>"; };
@@ -138,6 +195,72 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		5C72FE7516F1E4E900849F06 /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				5C2D173316F6ED190074F418 /* CalculatorOperationType.h */,
+				5C73BCF116E8B28E005B4DCA /* CalculatorOperation.h */,
+				5C73BCF216E8B28E005B4DCA /* CalculatorOperation.m */,
+				5C72FEA316F3589E00849F06 /* CalculatorTwoOperandOperation.h */,
+				5C72FEA416F358A000849F06 /* CalculatorTwoOperandOperation.m */,
+				5C72FE8216F1EC8100849F06 /* CalculatorAddingOperation.h */,
+				5C72FE8316F1EC8100849F06 /* CalculatorAddingOperation.m */,
+				5C72FE8516F1EC9700849F06 /* CalculatorSubstractingOperation.h */,
+				5C72FE8616F1EC9700849F06 /* CalculatorSubstractingOperation.m */,
+				5C72FE8816F1ECC700849F06 /* CalculatorMultiplyingOperation.h */,
+				5C72FE8916F1ECC700849F06 /* CalculatorMultiplyingOperation.m */,
+				5C72FE8B16F1ED2400849F06 /* CalculatorDividingOperation.h */,
+				5C72FE8C16F1ED2400849F06 /* CalculatorDividingOperation.m */,
+				5C72FEA916F36BE400849F06 /* CalculatorOneOperandOperation.h */,
+				5C72FEAA16F36BE600849F06 /* CalculatorOneOperandOperation.m */,
+				5C72FE8E16F1EDE700849F06 /* CalculatorSinusFunction.h */,
+				5C72FE8F16F1EDE700849F06 /* CalculatorSinusFunction.m */,
+				5C72FE9116F1EE8800849F06 /* CalculatorCosinusFunction.h */,
+				5C72FE9216F1EE8900849F06 /* CalculatorCosinusFunction.m */,
+				5C72FE9416F1EE9D00849F06 /* CalculatorSquareRootFunction.h */,
+				5C72FE9516F1EE9E00849F06 /* CalculatorSquareRootFunction.m */,
+				5C72FE9716F1EEE600849F06 /* CalculatorLogarithmFunction.h */,
+				5C72FE9816F1EEE600849F06 /* CalculatorLogarithmFunction.m */,
+				5C72FE9A16F1EF0800849F06 /* CalculatorSignChangingFunction.h */,
+				5C72FE9B16F1EF0900849F06 /* CalculatorSignChangingFunction.m */,
+				5C72FEA616F369FD00849F06 /* CalculatorNoOperandOperation.h */,
+				5C72FEA716F36A0000849F06 /* CalculatorNoOperandOperation.m */,
+				5C72FE9D16F1EF1B00849F06 /* CalculatorPiNumber.h */,
+				5C72FE9E16F1EF1C00849F06 /* CalculatorPiNumber.m */,
+				5C72FEA016F1EF4E00849F06 /* CalculatorEulerNumber.h */,
+				5C72FEA116F1EF4F00849F06 /* CalculatorEulerNumber.m */,
+			);
+			name = Operations;
+			sourceTree = "<group>";
+		};
+		5C72FE7616F1E5C700849F06 /* Operands */ = {
+			isa = PBXGroup;
+			children = (
+				5C72FE7F16F1E97100849F06 /* CalculatorProgramObject.h */,
+				5C72FE8016F1E97100849F06 /* CalculatorProgramObject.m */,
+				5C81FD8B16ECDA7300A514FB /* CalculatorVariable.h */,
+				5C81FD8C16ECDA7300A514FB /* CalculatorVariable.m */,
+				5C81FD8E16ECF15000A514FB /* CalculatorNumber.h */,
+				5C81FD8F16ECF15000A514FB /* CalculatorNumber.m */,
+				5C72FE7516F1E4E900849F06 /* Operations */,
+			);
+			name = Operands;
+			sourceTree = "<group>";
+		};
+		5C72FEAC16F3749F00849F06 /* Drawers */ = {
+			isa = PBXGroup;
+			children = (
+				5C2D173B16F6EF860074F418 /* CalculatorDrawerType.h */,
+				5C72FEAD16F374CA00849F06 /* GraphDrawer.h */,
+				5C72FEAE16F374CA00849F06 /* GraphDrawer.m */,
+				5C2D173416F6EE180074F418 /* GraphDiscreteDrawer.h */,
+				5C2D173516F6EE180074F418 /* GraphDiscreteDrawer.m */,
+				5C2D173716F6EE2B0074F418 /* GraphLinearDrawer.h */,
+				5C2D173816F6EE2B0074F418 /* GraphLinearDrawer.m */,
+			);
+			name = Drawers;
+			sourceTree = "<group>";
+		};
 		5C73BCF716E9E5AB005B4DCA /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,12 +281,7 @@
 			children = (
 				5C70B3F516E7DF05007FFD4C /* CalculatorBrain.h */,
 				5C70B3F616E7DF05007FFD4C /* CalculatorBrain.m */,
-				5C73BCF116E8B28E005B4DCA /* ProgramOperand.h */,
-				5C73BCF216E8B28E005B4DCA /* ProgramOperand.m */,
-				5C81FD8B16ECDA7300A514FB /* CalculatorVariable.h */,
-				5C81FD8C16ECDA7300A514FB /* CalculatorVariable.m */,
-				5C81FD8E16ECF15000A514FB /* CalculatorNumber.h */,
-				5C81FD8F16ECF15000A514FB /* CalculatorNumber.m */,
+				5C72FE7616F1E5C700849F06 /* Operands */,
 			);
 			name = Calculator;
 			sourceTree = "<group>";
@@ -171,10 +289,12 @@
 		5C73BCFC16E9F333005B4DCA /* Graph */ = {
 			isa = PBXGroup;
 			children = (
+				5C72FEAC16F3749F00849F06 /* Drawers */,
 				5C73BCF416E9E595005B4DCA /* AxesDrawer.h */,
 				5C73BCF516E9E595005B4DCA /* AxesDrawer.m */,
 				5C73BCFD16E9F3BC005B4DCA /* CalculatorGraphView.h */,
 				5C73BCFE16E9F3BC005B4DCA /* CalculatorGraphView.m */,
+				5C2D173216F6E90D0074F418 /* CalculatorGraphDataSource.h */,
 			);
 			name = Graph;
 			sourceTree = "<group>";
@@ -251,7 +371,7 @@
 				5C70B3E316E7D663007FFD4C /* CalculatorAppDelegate.m in Sources */,
 				5C70B3EF16E7D663007FFD4C /* CalculatorViewController.m in Sources */,
 				5C70B3F716E7DF05007FFD4C /* CalculatorBrain.m in Sources */,
-				5C73BCF316E8B28E005B4DCA /* ProgramOperand.m in Sources */,
+				5C73BCF316E8B28E005B4DCA /* CalculatorOperation.m in Sources */,
 				5C73BCF616E9E595005B4DCA /* AxesDrawer.m in Sources */,
 				5C73BCFB16E9E9F7005B4DCA /* CalculatorGraphViewController.mm in Sources */,
 				5C73BCFF16E9F3BC005B4DCA /* CalculatorGraphView.m in Sources */,
@@ -259,6 +379,24 @@
 				5C73BD0516E9F4CD005B4DCA /* CalculatorNavigationController.m in Sources */,
 				5C81FD8D16ECDA7300A514FB /* CalculatorVariable.m in Sources */,
 				5C81FD9016ECF15000A514FB /* CalculatorNumber.m in Sources */,
+				5C72FE8116F1E97100849F06 /* CalculatorProgramObject.m in Sources */,
+				5C72FE8416F1EC8100849F06 /* CalculatorAddingOperation.m in Sources */,
+				5C72FE8716F1EC9700849F06 /* CalculatorSubstractingOperation.m in Sources */,
+				5C72FE8A16F1ECC700849F06 /* CalculatorMultiplyingOperation.m in Sources */,
+				5C72FE8D16F1ED2400849F06 /* CalculatorDividingOperation.m in Sources */,
+				5C72FE9016F1EDE700849F06 /* CalculatorSinusFunction.m in Sources */,
+				5C72FE9316F1EE8A00849F06 /* CalculatorCosinusFunction.m in Sources */,
+				5C72FE9616F1EE9E00849F06 /* CalculatorSquareRootFunction.m in Sources */,
+				5C72FE9916F1EEE700849F06 /* CalculatorLogarithmFunction.m in Sources */,
+				5C72FE9C16F1EF0A00849F06 /* CalculatorSignChangingFunction.m in Sources */,
+				5C72FE9F16F1EF1C00849F06 /* CalculatorPiNumber.m in Sources */,
+				5C72FEA216F1EF4F00849F06 /* CalculatorEulerNumber.m in Sources */,
+				5C72FEA516F358A300849F06 /* CalculatorTwoOperandOperation.m in Sources */,
+				5C72FEA816F36A0300849F06 /* CalculatorNoOperandOperation.m in Sources */,
+				5C72FEAB16F36BE900849F06 /* CalculatorOneOperandOperation.m in Sources */,
+				5C72FEAF16F374CA00849F06 /* GraphDrawer.m in Sources */,
+				5C2D173616F6EE180074F418 /* GraphDiscreteDrawer.m in Sources */,
+				5C2D173916F6EE2B0074F418 /* GraphLinearDrawer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
